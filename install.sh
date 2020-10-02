@@ -18,13 +18,13 @@ sudo apt-get install -y git
 sudo apt-get install -y rename
 sudo apt-get install -y xargs
 
-echo "installing bash_profile aliases from recon_profile"
-git clone https://github.com/nahamsec/recon_profile.git
-cd recon_profile
-cat bash_profile >> ~/.bash_profile
-source ~/.bash_profile
-cd ~/tools/
-echo "done"
+#echo "installing bash_profile aliases from recon_profile"`
+#git clone https://github.com/nahamsec/recon_profile.git
+#cd recon_profile
+#cat bash_profile >> ~/.bash_profile
+#source ~/.bash_profile
+#cd ~/tools/
+#echo "done"
 
 
 
@@ -38,8 +38,9 @@ select choice in "${choices[@]}"; do
                 yes)
 
 					echo "Installing Golang"
-					wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-					sudo tar -xvf go1.13.4.linux-amd64.tar.gz
+					# ed: update url
+					wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
+					sudo tar -xvf go1.15.2.linux-amd64.tar.gz
 					sudo mv go /usr/local
 					export GOROOT=/usr/local/go
 					export GOPATH=$HOME/go
@@ -62,9 +63,9 @@ fi
 
 
 #Don't forget to set up AWS credentials!
-echo "Don't forget to set up AWS credentials!"
-apt install -y awscli
-echo "Don't forget to set up AWS credentials!"
+#echo "Don't forget to set up AWS credentials!"
+#apt install -y awscli
+#echo "Don't forget to set up AWS credentials!"
 
 
 
@@ -158,6 +159,10 @@ git clone https://github.com/yassineaboukir/asnlookup.git
 cd ~/tools/asnlookup
 pip install -r requirements.txt
 cd ~/tools/
+echo "done"
+
+echo "installing ffuf"
+go get -u github.com/ffuf/ffuf
 echo "done"
 
 echo "installing httprobe"
